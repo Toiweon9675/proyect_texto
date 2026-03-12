@@ -1,0 +1,22 @@
+name: Prueba actualización rápida
+
+on:
+  schedule:
+    - cron: "* * * * *"   # Cada minuto (mínimo permitido)
+  workflow_dispatch:
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Ejecutar script de prueba
+        run: python exportar_odoo.py
