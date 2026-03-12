@@ -2,8 +2,11 @@ name: Prueba actualización rápida
 
 on:
   schedule:
-    - cron: "* * * * *"   # Cada minuto (mínimo permitido)
+    - cron: "* * * * *"   # Cada minuto
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   actualizar:
